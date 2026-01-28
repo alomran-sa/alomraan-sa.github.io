@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>N.Alomran</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #111 0%, #000 70%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .bg-lines {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      z-index: 0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 460px;
+      padding: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card {
+      background: rgba(15,15,15,0.85);
+      backdrop-filter: blur(25px);
+      border-radius: 30px;
+      padding: 40px 28px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.8);
+      animation: fadeUp 1s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== LOGO ===== */
+    .logo {
+      width: 130px;
+      height: 130px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #00ffaa, #00c3ff);
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 15px 40px rgba(0,255,170,0.4);
+      overflow: hidden;
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* يحافظ على النسبة بدون قص */
+    }
+
+    h1 {
+      font-size: 26px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .bio {
+      font-size: 14px;
+      color: #aaa;
+      margin-bottom: 30px;
+    }
+
+    .links a {
+      display: block;
+      text-decoration: none;
+      color: white;
+      background: linear-gradient(135deg, #1c1c1c, #262626);
+      padding: 18px;
+      margin-bottom: 18px;
+      border-radius: 20px;
+      font-weight: 700;
+      transition: 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .links a:hover {
+      transform: scale(1.08);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+    }
+
+    .story-btn {
+      margin-top: 10px;
+      cursor: pointer;
+      color: #00ffaa;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+
+    .story-btn:hover { opacity: 0.7; }
+
+    .story {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.6s ease, opacity 0.6s ease;
+      opacity: 0;
+      text-align: right;
+      margin-top: 15px;
+      font-size: 14px;
+      line-height: 1.8;
+      color: #ccc;
+    }
+
+    .story.active {
+      max-height: 500px;
+      opacity: 1;
+    }
+
+    .footer {
+      margin-top: 25px;
+      font-size: 12px;
+      color: #555;
+    }
+
+    @media (max-width: 480px) {
+      .card { padding: 30px 20px; }
+      .logo {
+        width: 110px;
+        height: 110px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="bg-lines"></div>
+
+  <div class="container">
+    <div class="card">
+
+      <!-- LOGO -->
+      <div class="logo">
+        <img src="logo 555.jpeg" alt="N.Alomran Logo">
+      </div>
+
+      <h1>N.Alomran</h1>
+
+      <div class="bio">
+        خدمات عامة في البناء والترميم 
+صيانة أجهزة منزلية وتكييف      
+      </div>
+
+      <div class="links">
+        <a href="https://www.tiktok.com/@n.alomran.sa?_r=1&_t=ZS-93QMhCdlyza" target="_blank">🔥 TikTok حسابنا على</a>
+        <a href="https://wa.me/message/E3BQ7YHGC4CTC1" target="_blank">💬 تواصل عبر WhatsApp</a>
+      </div>
+
+      <div class="story-btn" onclick="toggleStory()">📖 قصة</div>
+
+      <div class="story" id="storyBox">
+       بدأنا من أرض الواقع، من البيوت اللي تحتاج شغل مضبوط مو وعود.
+شفنا كيف التفاصيل الصغيرة تفرق، وكيف تصليح بسيط ممكن يريح أهل بيت كامل.
+
+اشتغلنا في صيانة المكيفات، التلييس، البلاط، والترميم لأننا نؤمن إن الشغل الصح يبان مع الوقت. ما نحب الترقيع، نحب الحل اللي يعيش، ونركز على الجودة قبل السرعة — مع إننا نلتزم بالوقت.
+
+كل مشروع عندنا له نفس الأهمية، سواء كان تصليح بسيط أو ترميم كامل. نشتغل كأن المكان مكاننا، ونتركه أفضل مما كان.
+
+سمعتنا مبنية على الثقة، وشغلنا يشهد لنا.
+وهدفنا دايم واحد:
+راحة العميل، وشغل يرفع الراس.
+      </div>
+
+      <div class="footer">© 2026 N.Alomran — جميع الحقوق محفوظة</div>
+
+    </div>
+  </div>
+
+  <script>
+    function toggleStory() {
+      const box = document.getElementById('storyBox');
+      box.classList.toggle('active');
+    }
+  </script>
+
+</body>
+</html>
